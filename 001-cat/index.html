@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ねこ</title>
+  <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/browser.script.ii
+  fe.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.min.js"></script>
+  <style>
+      body {
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          background: #f5f5f5;
+          font-family: sans-serif;
+      }
+      main {
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+<main>
+  <h1>ねこ</h1>
+  <div id="sketch"></div>
+</main>
+
+<script type="text/ruby">
+def setup
+  createCanvas(400, 400)
+  noLoop()  # 静止画なので1回だけ描画
+end
+
+def draw
+  background(245, 240, 230)
+
+  strokeWeight(2)
+  stroke(140, 80, 40)
+  fill(255, 180, 120)
+
+  # 耳の外側
+  triangle(130, 90, 132, 170, 182, 127)
+  triangle(270, 90, 220, 127, 268, 170)
+  # 耳の内側
+  fill(255, 180, 190)
+  # 左耳
+  triangle(140, 110, 140, 163, 172, 135)
+  # 右耳
+  triangle(260, 110, 230, 136, 260, 163)
+
+  # 顔
+  noStroke()
+  fill(255, 180, 120)
+  circle(200, 200, 150)
+
+  # 左目
+  stroke(180, 100, 50)
+  fill(180, 200, 130)
+  circle(165, 190, 40)
+  fill(0, 0, 0)
+  circle(170, 190, 30)
+  fill(255, 255, 255)
+  circle(179, 186, 10)
+
+  # 右目
+  fill(180, 200, 130)
+  circle(240, 190, 40)
+  fill(0, 0, 0)
+  circle(245, 190, 30)
+  fill(255, 255, 255)
+  circle(254, 186, 10)
+
+  # おでこの縞模様（濃いオレンジの小さい線）
+  strokeWeight(3)
+  stroke(180, 100, 50)
+  line(185, 165, 190, 155)  # 左の縞
+  line(200, 160, 200, 150)  # 中央の縞
+  line(210, 155, 215, 165)  # 右の縞
+
+  # 鼻
+  fill(255, 180, 190)
+  triangle(202, 225, 192, 215, 212, 215)
+
+  # 鼻から口のライン
+  noFill()
+  line(202, 225, 202, 240)
+  arc(187, 240, 30, 20, 0, PI)
+  arc(217, 240, 30, 20, 0, PI)
+
+  noFill()
+  stroke(140, 80, 40)
+  strokeWeight(2)
+  arc(200, 200, 150, 150, -PI/7, PI + PI/7)
+  arc(200, 200, 150, 150, PI + PI/3, 2*PI - PI/3)
+
+    # ひげ（白い細い線）
+  stroke(255, 255, 255)
+  strokeWeight(1.5)
+
+  # 左側のひげ
+  line(150, 230, 100, 220)  # 上
+  line(150, 240, 90, 240)   # 中
+  line(150, 250, 100, 260)  # 下
+
+  # 右側のひげ
+  line(250, 230, 300, 220)  # 上
+  line(250, 240, 310, 240)  # 中
+  line(250, 250, 300, 260)  # 下
+end
+
+P5::init()
+</script>
+</body>
+</html>
