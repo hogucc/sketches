@@ -4,34 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ねこ</title>
-  <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/browser.script.ii
-  fe.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ruby-3_2-wasm-wasi@next/dist/browser.script.iife.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
   <style>
-      body {
-          margin: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-          background: #f5f5f5;
-          font-family: sans-serif;
-      }
-      main {
-          text-align: center;
-      }
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f5f5f5;
+      font-family: sans-serif;
+    }
+    main {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 <main>
   <h1>ねこ</h1>
-  <div id="sketch"></div>
 </main>
 
 <script type="text/ruby">
 def setup
   createCanvas(400, 400)
-  noLoop()  # 静止画なので1回だけ描画
+  noLoop()
 end
 
 def draw
@@ -73,12 +71,12 @@ def draw
   fill(255, 255, 255)
   circle(254, 186, 10)
 
-  # おでこの縞模様（濃いオレンジの小さい線）
+  # おでこの縞模様
   strokeWeight(3)
   stroke(180, 100, 50)
-  line(185, 165, 190, 155)  # 左の縞
-  line(200, 160, 200, 150)  # 中央の縞
-  line(210, 155, 215, 165)  # 右の縞
+  line(185, 165, 190, 155)
+  line(200, 160, 200, 150)
+  line(210, 155, 215, 165)
 
   # 鼻
   fill(255, 180, 190)
@@ -90,25 +88,26 @@ def draw
   arc(187, 240, 30, 20, 0, PI)
   arc(217, 240, 30, 20, 0, PI)
 
+  # 顔の輪郭線
   noFill()
   stroke(140, 80, 40)
   strokeWeight(2)
   arc(200, 200, 150, 150, -PI/7, PI + PI/7)
   arc(200, 200, 150, 150, PI + PI/3, 2*PI - PI/3)
 
-    # ひげ（白い細い線）
+  # ひげ
   stroke(255, 255, 255)
   strokeWeight(1.5)
 
   # 左側のひげ
-  line(150, 230, 100, 220)  # 上
-  line(150, 240, 90, 240)   # 中
-  line(150, 250, 100, 260)  # 下
+  line(150, 230, 100, 220)
+  line(150, 240, 90, 240)
+  line(150, 250, 100, 260)
 
   # 右側のひげ
-  line(250, 230, 300, 220)  # 上
-  line(250, 240, 310, 240)  # 中
-  line(250, 250, 300, 260)  # 下
+  line(250, 230, 300, 220)
+  line(250, 240, 310, 240)
+  line(250, 250, 300, 260)
 end
 
 P5::init()
